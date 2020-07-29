@@ -13,7 +13,7 @@ const KsBrowser = () => {
 	};
 
 	useEffect(() => {
-		// test();
+		test();
 	}, []);
 
 	return (
