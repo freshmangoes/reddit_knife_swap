@@ -25,7 +25,7 @@ const KsBrowser = () => {
 		<div>
 			{console.log(state)}
 			{state.map((e) => {
-				return(
+				return (
 					<ListingBox
 						title={e.data.title}
 						text={e.data.selftext}
@@ -33,7 +33,7 @@ const KsBrowser = () => {
 						username={e.data.author}
 						permalink={e.data.url}
 					/>
-				)
+				);
 				// return console.log(e);
 			})}
 		</div>
