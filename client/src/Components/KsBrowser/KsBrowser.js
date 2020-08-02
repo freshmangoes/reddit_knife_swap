@@ -34,7 +34,6 @@ const KsBrowser = () => {
 						permalink={e.data.url}
 					/>
 				);
-				// return console.log(e);
 			})}
 		</div>
 	);
