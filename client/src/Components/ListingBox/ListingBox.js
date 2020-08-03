@@ -4,16 +4,17 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 const ListingBox = (props) => {
-	const { title, text, images, username, permalink } = props;
+	let { title, text, images, username, link, displayStatus, data_status } = props;
+
 	return (
-		<div>
-			<h1>{title}</h1>
+		<div data_status={data_status}>
+			<h1>{title} - {displayStatus}</h1>
 			<div>
         <ReactMarkdown source={text}/>
       </div>
 			<p>{images}</p>
 			<p>{username}</p>
-			<a href={permalink}>Permalink</a>
+			<a href={link}>Link</a>
 		</div>
 	);
 };
