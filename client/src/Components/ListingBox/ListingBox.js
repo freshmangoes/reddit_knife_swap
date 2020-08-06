@@ -9,12 +9,15 @@ const ListingBox = (props) => {
 	return (
 		<div data_status={data_status}>
 			<h1>{title} - {displayStatus}</h1>
+			<h5>{username}</h5>
 			<div>
         <ReactMarkdown source={text}/>
       </div>
 			<p>{images}</p>
-			<p>{username}</p>
-			<a href={link}>Link</a>
+			<button>
+				<a href={link}>Link</a>
+			</button>
+			<hr/>
 		</div>
 	);
 };
