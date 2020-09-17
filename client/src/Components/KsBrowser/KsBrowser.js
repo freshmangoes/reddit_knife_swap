@@ -54,6 +54,12 @@ const KsBrowser = () => {
 
 	return (
 		<div>
+			<span>
+				<h5>Sort by:</h5>
+				<button>Available</button>
+				<button>Sold</button>
+				<button>Price Reduced</button>
+			</span>
 			{console.log(state)}
 			{state.map((e) => {
 				// filters out automoderator posts
