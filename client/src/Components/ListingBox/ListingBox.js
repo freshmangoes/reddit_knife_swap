@@ -15,7 +15,7 @@ const ListingBox = (props) => {
 	} = props;
 
 	return (
-		<div data_status={data_status}>
+		<div data_status={data_status} data_title={title}>
 			<h1>
 				<a href={link}>{title}</a> - {displayStatus}
 			</h1>

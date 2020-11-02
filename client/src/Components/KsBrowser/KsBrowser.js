@@ -6,7 +6,8 @@ import ListingBox from '../ListingBox/ListingBox';
 const KsBrowser = () => {
 	const [state, setState] = useState([]);
 
-	const test = async () => {
+	const getPosts = async (status = 'all') => {
+		console.log(`STATUS PARAM:: ${status}`);
 		try {
 			const res = await API.search();
 
@@ -30,14 +31,68 @@ const KsBrowser = () => {
 						displayStatus = 'Available';
 					}
 
-					newState.push({
-						title,
-						text,
-						username,
-						link,
-						displayStatus,
-						dataStatus,
-					});
+					switch (status) {
+						case 'all':
+							console.log('Case:: ALL');
+							newState.push({
+								title,
+								text,
+								username,
+								link,
+								displayStatus,
+								dataStatus,
+							});
+							break;
+						case 'price reduced':
+							console.log('Case:: PRICE REDUCED');
+							if (dataStatus === 'Price Reduced') {
+								newState.push({
+									title,
+									text,
+									username,
+									link,
+									displayStatus,
+									dataStatus,
+								});
+							}
+							break;
+						case 'sold':
+							console.log('Case:: SOLD');
+							if (dataStatus === 'Sold/traded') {
+								newState.push({
+									title,
+									text,
+									username,
+									link,
+									displayStatus,
+									dataStatus,
+								});
+							}
+							break;
+						case 'available':
+							console.log('Case:: AVAILABLE');
+							if (dataStatus === 'Available') {
+								newState.push({
+									title,
+									text,
+									username,
+									link,
+									displayStatus,
+									dataStatus,
+								});
+							}
+							break;
+						default:
+							newState.push({
+								title,
+								text,
+								username,
+								link,
+								displayStatus,
+								dataStatus,
+							});
+							break;
+					}
 				}
 			});
 			console.log('newState::', newState);
@@ -49,16 +104,41 @@ const KsBrowser = () => {
 	};
 
 	useEffect(() => {
-		test();
+		getPosts();
 	}, []);
 
 	return (
 		<div>
 			<span>
 				<h5>Sort by:</h5>
-				<button>Available</button>
-				<button>Sold</button>
-				<button>Price Reduced</button>
+				<button
+					onClick={() => {
+						getPosts('all');
+					}}
+				>
+					All
+				</button>
+				<button
+					onClick={() => {
+						getPosts('available');
+					}}
+				>
+					Available
+				</button>
+				<button
+					onClick={() => {
+						getPosts('sold');
+					}}
+				>
+					Sold
+				</button>
+				<button
+					onClick={() => {
+						getPosts('price reduced');
+					}}
+				>
+					Price Reduced
+				</button>
 			</span>
 			{console.log(state)}
 			{state.map((e) => {
