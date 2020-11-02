@@ -10,7 +10,6 @@ const KsBrowser = () => {
 		console.log(`STATUS PARAM:: ${status}`);
 		try {
 			const res = await API.search();
-
 			let newState = [];
 
 			// take relevant data from res
@@ -31,66 +30,42 @@ const KsBrowser = () => {
 						displayStatus = 'Available';
 					}
 
+					const pushToState = () => {
+						newState.push({
+							title,
+							text,
+							username,
+							link,
+							displayStatus,
+							dataStatus,
+						});
+					};
+
 					switch (status) {
 						case 'all':
 							console.log('Case:: ALL');
-							newState.push({
-								title,
-								text,
-								username,
-								link,
-								displayStatus,
-								dataStatus,
-							});
+							pushToState();
 							break;
 						case 'price reduced':
 							console.log('Case:: PRICE REDUCED');
 							if (dataStatus === 'Price Reduced') {
-								newState.push({
-									title,
-									text,
-									username,
-									link,
-									displayStatus,
-									dataStatus,
-								});
+								pushToState();
 							}
 							break;
 						case 'sold':
 							console.log('Case:: SOLD');
 							if (dataStatus === 'Sold/traded') {
-								newState.push({
-									title,
-									text,
-									username,
-									link,
-									displayStatus,
-									dataStatus,
-								});
+								pushToState();
 							}
 							break;
 						case 'available':
 							console.log('Case:: AVAILABLE');
 							if (dataStatus === 'Available') {
-								newState.push({
-									title,
-									text,
-									username,
-									link,
-									displayStatus,
-									dataStatus,
-								});
+								pushToState();
 							}
 							break;
 						default:
-							newState.push({
-								title,
-								text,
-								username,
-								link,
-								displayStatus,
-								dataStatus,
-							});
+							pushToState();
 							break;
 					}
 				}
