@@ -86,28 +86,28 @@ const KsBrowser = () => {
 		<div>
 			<span>
 				<h5>Sort by:</h5>
-				<button
+				<button className='btn hvr-float'
 					onClick={() => {
 						getPosts('all');
 					}}
 				>
 					All
 				</button>
-				<button
+				<button className='btn hvr-float'
 					onClick={() => {
 						getPosts('available');
 					}}
 				>
 					Available
 				</button>
-				<button
+				<button className='btn hvr-float'
 					onClick={() => {
 						getPosts('sold');
 					}}
 				>
 					Sold
 				</button>
-				<button
+				<button className='btn hvr-float'
 					onClick={() => {
 						getPosts('price reduced');
 					}}
@@ -122,7 +122,7 @@ const KsBrowser = () => {
 					<ListingBox
 						title={e.title}
 						text={e.text}
-						images='http://placehold.jp/150x150.png'
+						// images='http://placehold.jp/150x150.png'
 						username={e.username}
 						link={e.link}
 						displayStatus={e.displayStatus}

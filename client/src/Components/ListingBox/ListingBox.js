@@ -7,7 +7,7 @@ const ListingBox = (props) => {
 	let {
 		title,
 		text,
-		images,
+		// images,
 		username,
 		link,
 		displayStatus,
@@ -15,17 +15,27 @@ const ListingBox = (props) => {
 	} = props;
 
 	return (
-		<div data_status={data_status} data_title={title}>
-			<h1>
-				<a href={link}>{title}</a> - {displayStatus}
+		<div className='listing' data_status={data_status} data_title={title}>
+			<h1 className='listing-title'>
+				<a href={link} target='_blank' rel='noopener noreferrer'>
+					{title}
+				</a>{' '}
+				- {displayStatus}
 			</h1>
-			<h5>
-				Posted by <a href={`https://reddit.com/u/${username}`}>{username}</a>
+			<h5 className='listing-username'>
+				Posted by{' '}
+				<a
+					href={`https://reddit.com/u/${username}`}
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					{username}
+				</a>
 			</h5>
-			<div>
+			<div className='listing-text'>
 				<ReactMarkdown source={text} />
 			</div>
-			<p>{images}</p>
+			{/* <p>{images}</p> */}
 			<hr />
 		</div>
 	);
